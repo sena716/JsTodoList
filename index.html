@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>TodoList</title>
+</head>
+<body>
+    <section class="main">
+        <section class="main__sidebar">
+            <div class="main__sidebar--list">
+                <ul>
+                    <li class="sidebarInComplate" onclick="updateHtml('inCompleteTodoList')">未完了タスク</li>
+                    <li class="sidebarComplate" onclick="updateHtml('completeTodoList')">完了済タスク</li>
+                    <li class="sidebarDelete" onclick="updateHtml('deleteTodoList')">削除済タスク</li>
+                </ul>
+                <!-- <select name="" id="sortOrder" onchange="prioritySorting()">
+                    <option value="" selected>登録日</option>
+                    <option value="">優先度</option>
+                </select> -->
+            </div>
+        </section>
+
+        <section class="main__section">
+            <div class="main__section--input df">
+                <form id="input_form" class="main__section--input-form">
+                    <div class="form_input">
+                        <input class="input" type="text" id="content" placeholder="" name="content" required>
+                        <label>お名前</label>
+	                    <span class="input_line"></span>
+                    </div>
+                    <div class="form_dropdown">
+                        <select name="priority" id="priority">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="form_button">
+                        <input type="submit" id="content_add_button" name="contnet_" value="登録">
+                    </div>
+                </form>
+            </div>
+            <div class="main__section--todo">
+                <ul id="todo_list" class="main__list" name="todo_list">
+
+                </ul>
+            </div>
+            <form id="action_form" class="main__section--action actionActive df" name="action_form">
+                <i class="fas fa-times-circle" id="delete" name="delete"></i>
+                <i class="fas fa-check-circle" id="complete" name="complete"></i>
+            </form>
+        </section>
+    </main>
+
+    <div class="mask displayActive"></div>
+    <div class="modal displayActive">
+        <button id="modalClose">✖</button>
+        <input type="text" id="modalInput" value="">
+        <p>作成日:<span id="modalDate"></span></p>
+        <button id="modalWindowUpdate">更新</button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

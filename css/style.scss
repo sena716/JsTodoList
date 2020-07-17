@@ -1,0 +1,392 @@
+$sm: 576px;
+$md: 720px;
+$lg: 980px;
+$ex: 1140px;
+
+html{
+    // overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    max-width:100vw;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+}
+
+// 中央揃え
+.df{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    background: #FF8800;
+    display: flex;
+
+    h1{
+        margin: 0;
+    }
+    
+    &__sidebar{
+        width: 30%;
+        height: 100vh;
+        background: #000;
+        position: fixed;
+        left: 0;
+
+        &--list{
+            height: 100%;
+            line-height: 3em;
+            flex-direction: column;
+
+            ul{
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+
+                .borderAction{
+                    border: 10px solid #FF8800;
+                }
+
+                li{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 200px;
+                    height: 200px;
+                    background: #fff;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
+            }
+
+            & >{
+                display: block;
+            }
+        }
+    }
+
+    &__section{
+        width: 70%;
+        position: relative;
+        left: 30%;
+
+
+        &--input{
+            width: 100%;
+            height: 20%;
+            background: #fff;
+
+            &-form{
+                width: 70%;
+                height: 35px;
+                text-align: center;
+                display: flex;
+                justify-content: space-around;
+
+                *{
+                    height: 100%;
+                    margin: 0 10px;
+                }
+
+                // 入力フォーム text
+                .form_input{
+                    position: relative;
+                    width: 80%;
+                    margin-right: 30px;
+
+                    input[type='text'] {
+                        font: 15px/24px sans-serif;
+                        box-sizing: border-box;
+                        width: 100%;
+                        letter-spacing: 1px;
+                        padding-left: 4em;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    .input{
+                        padding: 4px 0;
+                        border: 0;
+                        border-bottom: 1px solid #1b2538;
+                        background-color: transparent;
+                    }
+                    .input ~ .input_line {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        transition: 0.4s;
+                        background-color: #da3c41;
+                    }
+                    .input:focus ~ .input_line,
+                    .form_input.input ~ .input_line {
+                        width: 100%;
+                        transition: 0.4s;
+                    }
+                    .input ~ label {
+                        position: absolute;
+                        padding-left: 0px;
+                        // z-index: -1;
+                        top: 6px;
+                        left: 0;
+                        transition: 0.3s;
+                        letter-spacing: 0.5px;
+                        color: #aaaaaa;
+                    }
+                    .input:focus ~ label, .form_input.input ~ label {
+                        font-size: 12px;
+                        top: -16px;
+                        transition: 0.3s;
+                        color: #da3c41;
+                    }
+                }
+                
+                // 入力フォーム primary
+                .form_dropdown{
+
+                    select{
+                        padding: 0 15px;
+                        border: none;
+                        border-bottom: 1px solid #000;
+                    }
+                }
+
+                // 入力フォーム button
+                .form_button{
+                    input{
+                        padding: 0 15px;
+                        border: none;
+                        background: #fff;
+                        border-bottom: 1px solid #000;
+                    }
+                }
+            }
+        }
+
+        &--todo{
+            width: 100%;
+            background: #FF8800;
+            
+            .main__list{
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                li{
+                    background: #fff;
+                    width: 26%;
+                    text-align: center;
+                    padding: 60px 0;
+                    margin: 30px 0;
+                    border-radius: 15px;
+                    position: relative;
+                    box-shadow: 7px 8px rgba(0,0,0, 0.1);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    // 編集マーク
+                    .todoListEdit{
+                        position: absolute;
+                        top: 2px;
+                        left: 10px;
+                        color: #707070;
+                        cursor: pointer;
+                    }
+
+                    // newRibbon
+                    .newRibbon{
+                        position: absolute;
+                        top: -6px;
+                        right: -6px;
+                        width: 89px;
+                        height: 91px;
+                        overflow: hidden;
+                    }
+                    
+                    .newRibbonContent{
+                        display: inline-block;
+                        position: absolute;
+                        padding: 7px 0;
+                        left: -23px;
+                        top: 22px;
+                        width: 160px;
+                        text-align: center;
+                        font-size: 18px;
+                        line-height: 16px;
+                        background: #da3c41;
+                        color: #fff;
+                        letter-spacing: 0.05em;
+                        -webkit-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+                        &::before, &::after{
+                            position: absolute;
+                            content: "";
+                            border-top: 4px solid #b2751b;
+                            border-left: 4px solid transparent;
+                            border-right: 4px solid transparent;
+                            bottom: -4px;
+                        }
+
+                        &::before{
+                            left: 14px;    
+                        }
+                        &::after{
+                            right: 18px;
+                        }
+                    }
+
+                    // checkRibbon
+                    .checkRibbon{
+                        position: absolute;
+                        bottom: -6px;
+                        left: -6px;
+                        width: 89px;
+                        height: 91px;
+                        overflow: hidden;
+                    }
+                    
+                    .checkRibbonContent{
+                        display: inline-block;
+                        position: absolute;
+                        padding: 7px 0;
+                        right: -24px;
+                        bottom: 21px;
+                        width: 160px;
+                        text-align: center;
+                        font-size: 18px;
+                        line-height: 16px;
+                        background: #5167ff;
+                        color: #fff;
+                        letter-spacing: 0.05em;
+                        -webkit-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+                        &::before, &::after{
+                            position: absolute;
+                            content: "";
+                            border-bottom: 4px solid #b2751b;
+                            border-left: 4px solid transparent;
+                            border-right: 4px solid transparent;
+                            top: -4px;
+                        }
+
+                        &::before{
+                            right: 14px;    
+                        }
+                        &::after{
+                            left: 18px;
+                        }
+                    }
+                    
+                    @media ( max-width: $ex ){
+                        width: 40%;
+                    }
+                    @media ( max-width: $md ){
+                        width: 80%;
+                    }
+
+                    .todoListContent{
+                        position: absolute;   
+                    }
+                    .todoListDate{
+                        font-size: 10px;
+                        position: absolute;
+                        right: 10px;
+                        bottom: 0;
+                        color: #7C6969;
+                    }
+                }
+            }
+        }
+
+        &--action{
+            width: 70%;
+            bottom: 10px;
+            position: fixed;
+            text-align: center;
+
+            i{
+                font-size: 50px;
+                cursor: pointer;
+                background: black;
+                border-radius: 50%;
+                border: 5px solid #000;
+                transform: rotate(-360deg);
+                transition: all .5s;
+
+                &:hover{
+                    transform: rotate(360deg);
+                    transition: all .8s;
+                }
+                
+                &:nth-of-type(1){
+                    margin-right: 20px;
+                    &:before{
+                        color: #ff0e0e;
+                    }
+                }
+                &:nth-of-type(2){
+                    margin-left: 20px;
+                    &:before{
+                        color: #2828ff;
+                    }
+                }
+            }
+        }
+    }
+
+    .mask {
+        background: rgba(0,0,0,0.4);
+        position:fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+    }
+    // モーダルウィンドウ
+    .modal{
+        text-align: center;
+        background: #ff0;
+        width: 300px;
+        height: 300px;
+        position:absolute;
+        top:40px;
+        right: 0px;
+        left:0px;
+        margin:0 auto;
+        padding: 20px;
+        z-index: 2;
+    }
+
+    .displayActive{
+        display: none;
+    }
+
+    .actionActive{
+        display: none;
+    }
+}
