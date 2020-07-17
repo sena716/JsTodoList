@@ -59,10 +59,14 @@
 
     <div class="mask displayActive"></div>
     <div class="modal displayActive">
-        <button id="modalClose">✖</button>
-        <input type="text" id="modalInput" value="">
-        <p>作成日:<span id="modalDate"></span></p>
-        <button id="modalWindowUpdate">更新</button>
+        <div class="modal__form">
+            <button class="modal__form--close" id="modalClose">✖</button>
+            <div>
+                <input type="text" id="modalInput" value="">
+                <p>作成日:<span id="modalDate"></span></p>
+            </div>
+            <button class="modal__form--update" id="modalWindowUpdate">更新</button>
+        </div>
     </div>
 
     <script src="js/main.js"></script>

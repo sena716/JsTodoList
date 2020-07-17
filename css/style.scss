@@ -370,16 +370,38 @@ body{
     // モーダルウィンドウ
     .modal{
         text-align: center;
-        background: #ff0;
+        background: #fff;
         width: 300px;
-        height: 300px;
+        height: 200px;
         position:absolute;
         top:40px;
         right: 0px;
         left:0px;
+        padding: 50px 20px;
         margin:0 auto;
-        padding: 20px;
         z-index: 2;
+        border-radius: 15px;
+
+        &__form{
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+
+            &--close{
+                position: absolute;
+                top: -40px;
+                right: -10px;
+                background-color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+            &--update{
+                bottom: 0;
+                position: absolute;
+                cursor: pointer;
+            }
+        }
     }
 
     .displayActive{
